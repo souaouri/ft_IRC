@@ -2,8 +2,8 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = IRC
-HEADER = Channel.hpp parsing.hpp User.hpp
-OBJ_F = Channel.o general.o JOIN.o KICK.o User.o
+HEADER = Channel.hpp parsing.hpp User.hpp PRIVMSG.hpp
+OBJ_F = Channel.o User.o general.o JOIN.o KICK.o PRIVMSG.cpp
 
 all: $(NAME)
 

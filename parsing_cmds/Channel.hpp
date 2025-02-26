@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:57:14 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/24 17:15:22 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:56:09 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ class Channel{
 		void addMember(std::string nickname);
 		void addOperator(std::string nickname);
 		bool isOperator(User *user);
-		// bool isMember(std::string nickname);
+		bool isMember(std::string nickname);
 		bool removeMember(std::string nickname);
+		void broadcast(const std::string &msg, std::string sender);
 		void		print_members(){
 			for (int i = 0; (size_t)i < members.size(); i++)
 			{
@@ -44,7 +45,9 @@ class Channelmanager{
 	private:
 	public:
 		std::vector<Channel*> Channels;
+		std::vector<User*> global_users;
 		Channel*	search_for_channel(std::string channel_name);
+		User* 		search_for_user(const std::string nickname);
 		Channel*	CreatChannel(std::string channel_name);
 		void		print_channels(){
 			for (int i = 0; (size_t)i < Channels.size(); i++)

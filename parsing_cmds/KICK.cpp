@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 15:14:23 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/24 17:12:52 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/02/26 22:58:09 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,49 +37,50 @@ void exexc_kick_cmd(std::vector<std::string> BUFFER, Channelmanager& manager)
 	if (!manager.Channels[i]->removeMember(nickname))
 	{
 		std::cout << "401" << " <NICKNAME> " << nickname << " :No such nick" << std::endl;
+		return ;
 	}
 }
 
 #include "Channel.hpp"
 
-int main(int argc, char **argv) {
-    // Create users
-    // User alice("Alice");
-    // User bob("Bob");
-    // User charlie("Charlie");
+// int main(int argc, char **argv) {
+//     // Create users
+//     // User alice("Alice");
+//     // User bob("Bob");
+//     // User charlie("Charlie");
 
-    // Create channel manager and a channel
-    Channelmanager manager;
-    Channel* general = manager.CreatChannel("#general");
+//     // Create channel manager and a channel
+//     Channelmanager manager;
+//     Channel* general = manager.CreatChannel("#general");
 
-    // Add users to the channel
-    general->addMember("Alice");
-    general->addMember("Bob");
-    general->addMember("Charlie");
+//     // Add users to the channel
+//     general->addMember("Alice");
+//     general->addMember("Bob");
+//     general->addMember("Charlie");
 
-    // Make Alice an operator
-    general->addOperator("alice");
+//     // Make Alice an operator
+//     general->addOperator("alice");
 
-    // ✅ Test: Alice kicks Bob
-    std::cout << "\n✅ Alice kicks Bob:\n";
-    // std::vector<std::string> kickCmd1 = {"KICK", "#general", "Bob"};
-    exexc_kick_cmd(split_output(argv[1]), manager);
+//     // ✅ Test: Alice kicks Bob
+//     std::cout << "\n✅ Alice kicks Bob:\n";
+//     // std::vector<std::string> kickCmd1 = {"KICK", "#general", "Bob"};
+//     exexc_kick_cmd(split_output(argv[1]), manager);
 
-	general->print_members();
-    // // ❌ Test: Bob tries to kick Charlie (Bob is not operator)
-    // std::cout << "\n❌ Bob tries to kick Charlie:\n";
-    // std::vector<std::string> kickCmd2 = {"KICK", "#general", "Charlie"};
-    // exexc_kick_cmd(kickCmd2, manager);
+// 	general->print_members();
+//     // // ❌ Test: Bob tries to kick Charlie (Bob is not operator)
+//     // std::cout << "\n❌ Bob tries to kick Charlie:\n";
+//     // std::vector<std::string> kickCmd2 = {"KICK", "#general", "Charlie"};
+//     // exexc_kick_cmd(kickCmd2, manager);
 
-    // // ❌ Test: Kicking a non-existent user
-    // std::cout << "\n❌ Kick non-existent user:\n";
-    // std::vector<std::string> kickCmd3 = {"KICK", "#general", "Dave"};
-    // exexc_kick_cmd(kickCmd3, manager);
+//     // // ❌ Test: Kicking a non-existent user
+//     // std::cout << "\n❌ Kick non-existent user:\n";
+//     // std::vector<std::string> kickCmd3 = {"KICK", "#general", "Dave"};
+//     // exexc_kick_cmd(kickCmd3, manager);
 
-    // // ❌ Test: Kicking from a non-existent channel
-    // std::cout << "\n❌ Kick from non-existent channel:\n";
-    // std::vector<std::string> kickCmd4 = {"KICK", "#random", "Charlie"};
-    // exexc_kick_cmd(kickCmd4, manager);
+//     // // ❌ Test: Kicking from a non-existent channel
+//     // std::cout << "\n❌ Kick from non-existent channel:\n";
+//     // std::vector<std::string> kickCmd4 = {"KICK", "#random", "Charlie"};
+//     // exexc_kick_cmd(kickCmd4, manager);
 
-    return 0;
-}
+//     return 0;
+// }

@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:28:13 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/24 16:58:48 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/02/26 23:01:27 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,15 @@ Channel* Channelmanager::search_for_channel(std::string channel_name)
 			return (Channels[i]);
 	}
 	return (NULL);
+}
+
+User* Channelmanager::search_for_user(const std::string nickname)
+{
+    for (size_t i = 0; i < global_users.size(); ++i)
+	{
+        if (global_users[i]->getNick() == nickname) return global_users[i];
+    }
+    return NULL;
 }
 
 Channel*	Channelmanager::CreatChannel(std::string channel_name)
@@ -61,10 +70,14 @@ bool Channel::isOperator(User *user)
     return std::find(operators.begin(), operators.end(), user) != operators.end();
 }
 
-// bool Channel::isMember(std::string user)
-// {
-//     return std::find(operators.begin(), operators.end(), user) != operators.end();
-// }
+bool Channel::isMember(std::string user)
+{
+    for(int i = 0; (size_t)i < members.size(); i++){
+		if (members[i]->getNick() == user)
+			return true;
+	}
+	return false;
+}
 
 bool Channel::removeMember(std::string nickname)
 {
@@ -86,4 +99,13 @@ std::string Channel::getName()
 
 Channel::Channel(std::string new_name){
 	name = new_name;
+}
+
+void Channel::broadcast(const std::string &msg, std::string sender)
+{
+    for (size_t i = 0; i < members.size(); ++i) {
+        if (members[i]->getNick() != sender) {
+            members[i]->sendMessage(msg);
+        }
+    }
 }
