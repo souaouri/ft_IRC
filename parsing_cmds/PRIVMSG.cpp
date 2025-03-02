@@ -6,13 +6,13 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 09:32:33 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/26 23:12:02 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:32:56 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.hpp"
 
-void	exexc_privmsg_cmd(std::vector<std::string> BUFFER, Channelmanager& manager)
+void	exec_privmsg_cmd(std::vector<std::string> BUFFER, Channelmanager& manager)
 {
 	std::string channel_name = BUFFER[1];
 	std::string nickname = BUFFER[1];
@@ -73,7 +73,7 @@ int main(int argc, char **argv) {
     // ✅ Test: Alice kicks Bob
     std::cout << "\n✅ Alice kicks Bob:\n";
     // std::vector<std::string> kickCmd1 = {"KICK", "#general", "Bob"};
-    exexc_privmsg_cmd(split_output(argv[1]), manager);
+    exec_privmsg_cmd(split_output(argv[1]), manager);
 
 	general->print_members();
     // // ❌ Test: Bob tries to kick Charlie (Bob is not operator)

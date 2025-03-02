@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 12:14:13 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/25 11:54:07 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:32:18 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,17 @@ void	check_is_cmd_valid(std::vector<std::string> BUFFER, Channelmanager &manager
 	}
 	else if (BUFFER[i] == "KICK")
 	{
-		exexc_kick_cmd(BUFFER, manager);
+		exec_kick_cmd(BUFFER, manager);
 		i++;
 	}
 	else if (BUFFER[i] == "PRIVMSG")
 	{
-		exexc_privmsg_cmd(BUFFER, manager);
+		exec_privmsg_cmd(BUFFER, manager);
+		i++;
+	}
+	else if (BUFFER[i] == "QUIT")
+	{
+		exec_quit_cmd(BUFFER, manager);
 		i++;
 	}
 	else

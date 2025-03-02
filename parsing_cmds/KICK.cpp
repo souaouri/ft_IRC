@@ -6,13 +6,13 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 15:14:23 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/26 22:58:09 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:49:36 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.hpp"
 
-void exexc_kick_cmd(std::vector<std::string> BUFFER, Channelmanager& manager)
+void exec_kick_cmd(std::vector<std::string> BUFFER, Channelmanager& manager)
 {
 	std::string channel_name = BUFFER[1];
 	std::string  nickname = BUFFER[2];
@@ -39,6 +39,8 @@ void exexc_kick_cmd(std::vector<std::string> BUFFER, Channelmanager& manager)
 		std::cout << "401" << " <NICKNAME> " << nickname << " :No such nick" << std::endl;
 		return ;
 	}
+	//brodcast
+	///remove channel if is empty
 }
 
 #include "Channel.hpp"

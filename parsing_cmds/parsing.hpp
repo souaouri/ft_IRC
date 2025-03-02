@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 12:15:58 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/26 22:56:49 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:32:40 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@
 std::vector<std::string>	split_output(std::string BUFFER);
 void	exec_join_cmd(std::vector<std::string> BUFFER, Channelmanager &manager);
 void	check_is_cmd_valid(std::vector<std::string> BUFFER, Channelmanager &manager);
-void 	exexc_kick_cmd(std::vector<std::string> BUFFER, Channelmanager& manager);
-void	exexc_privmsg_cmd(std::vector<std::string> BUFFER, Channelmanager& manager);
+void 	exec_kick_cmd(std::vector<std::string> BUFFER, Channelmanager& manager);
+void	exec_privmsg_cmd(std::vector<std::string> BUFFER, Channelmanager& manager);
+void	exec_quit_cmd(std::vector<std::string> BUFFER, Channelmanager &manager);

@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:57:14 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/26 22:56:09 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:54:16 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 class Channel{
 	private:
+		bool topic_r;//
+		bool invite;//
+		bool islimit;//
 		std::string name;
 		std::string password;
 		std::vector<std::string> Channels;
