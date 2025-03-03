@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 12:14:13 by souaouri          #+#    #+#             */
-/*   Updated: 2025/03/03 15:05:08 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/03 21:46:11 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	check_is_cmd_valid(std::vector<std::string> BUFFER, Channelmanager &manager
 	else
 	{
 		std::string nuck = "nick";
-		ft_send(1, ERR_UNKNOWNCOMMAND("nick", "ajsd"));
+		ft_send(1, ERR_UNKNOWNCOMMAND(nuck, "ajsd"));
 	}
 }
 
