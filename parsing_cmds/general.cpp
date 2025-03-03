@@ -6,12 +6,19 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 12:14:13 by souaouri          #+#    #+#             */
-/*   Updated: 2025/03/02 15:32:18 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:05:08 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.hpp"
 #include "Channel.hpp"
+#include <sys/socket.h>
+
+void ft_send(int fd, std::string msg) {
+	if (send(fd, msg.c_str(), msg.length(), 0) == -1) {
+		std::cerr << "send() failed" << std::endl;
+	}
+}
 
 std::vector<std::string>	split_output(std::string BUFFER)
 {
@@ -37,25 +44,42 @@ void	check_is_cmd_valid(std::vector<std::string> BUFFER, Channelmanager &manager
 	if (BUFFER[i] == "JOIN")
 	{
 		exec_join_cmd(BUFFER, manager);
-		i++;
+	
 	}
 	else if (BUFFER[i] == "KICK")
 	{
 		exec_kick_cmd(BUFFER, manager);
-		i++;
+	
 	}
 	else if (BUFFER[i] == "PRIVMSG")
 	{
 		exec_privmsg_cmd(BUFFER, manager);
-		i++;
+	
 	}
-	else if (BUFFER[i] == "QUIT")
+	else if (BUFFER[i] == "INVITE")
 	{
-		exec_quit_cmd(BUFFER, manager);
-		i++;
+		exec_invite_cmd(BUFFER, manager);
+	
 	}
 	else
 	{
-		std::cout << ERR_UNKNOWNCOMMAND << " " << BUFFER[i] << ":" << " Unknown command" << std::endl; // i need user name
+		std::string nuck = "nick";
+		ft_send(1, ERR_UNKNOWNCOMMAND("nick", "ajsd"));
 	}
 }
+
+// PRIVMSG <nickname> Hello
+// PRIVMSG <nickname> :Hello           World
+
+// PRIVMSG
+// <nickname>
+// :Hello
+// World
+
+/*
+buffer[1024]
+
+
+join #dgfdhfdfg  
+
+*/

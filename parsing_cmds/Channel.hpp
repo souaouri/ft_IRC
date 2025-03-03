@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:57:14 by souaouri          #+#    #+#             */
-/*   Updated: 2025/03/02 15:54:16 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/03 14:46:40 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "User.hpp"
 #include <iostream>
 #include <vector>
-
 
 class Channel{
 	private:

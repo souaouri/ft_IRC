@@ -6,7 +6,7 @@
 /*   By: souaouri <souaouri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 12:28:13 by souaouri          #+#    #+#             */
-/*   Updated: 2025/02/26 23:01:27 by souaouri         ###   ########.fr       */
+/*   Updated: 2025/03/03 14:31:39 by souaouri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ Channel* Channelmanager::search_for_channel(std::string channel_name)
 	return (NULL);
 }
 
-User* Channelmanager::search_for_user(const std::string nickname)
+User* Channelmanager::search_for_user(std::string nickname)
 {
     for (size_t i = 0; i < global_users.size(); ++i)
 	{
-        if (global_users[i]->getNick() == nickname) return global_users[i];
+        if (global_users[i]->getNick() == nickname)
+			return global_users[i];
     }
     return NULL;
 }
